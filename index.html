@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>排序演算法報告 (Index 應用)</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 20px; background-color: #f4f7f6; color: #333; }
+        h1 { color: #2c3e50; text-align: center; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+        h2 { color: #2980b9; margin-top: 30px; }
+        pre { background-color: #282c34; color: #abb2bf; padding: 15px; border-radius: 8px; overflow-x: auto; font-family: Consolas, monospace; }
+        .demo-box { background: #fff; border-left: 5px solid #2ecc71; padding: 15px; margin: 15px 0; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        button { background-color: #3498db; color: white; border: none; padding: 10px 15px; cursor: pointer; border-radius: 4px; font-size: 16px; transition: 0.3s; }
+        button:hover { background-color: #2980b9; }
+        .result { font-weight: bold; color: #e74c3c; margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+    <h1>排序演算法報告：Index 的應用</h1>
+    <p>本報告展示兩種使用「Index (索引)」觀念來優化的排序演算法。</p>
+
+    <h2>1. 進階氣泡排序法 (Advanced Bubble Sort)</h2>
+    <p><strong>Index 用法：</strong>紀錄每一輪最後一次發生交換的位置（Index）。該 Index 之後的元素皆已排序完成，下一輪只需比對到該位置即可，大幅減少比對次數。</p>
+    
+    <pre><code>// C 語言實作：進階氣泡排序
+void advancedBubbleSort(int arr[], int n) {
+    int n_temp = n;
+    while (n_temp > 1) {
+        int newn = 0; // 用來記錄最後一次交換的 index
+        for (int i = 1; i < n_temp; i++) {
+            if (arr[i - 1] > arr[i]) {
+                // 交換數值
+                int temp = arr[i - 1];
+                arr[i - 1] = arr[i];
+                arr[i] = temp;
+                newn = i; // 更新最後交換的 index
+            }
+        }
+        n_temp = newn; // 下一輪只需檢查到最後交換的位置
+    }
+}</code></pre>
+
+    <div class="demo-box">
+        <h3>網頁動態測試</h3>
+        <p>原始陣列：[64, 34, 25, 12, 22, 11, 90]</p>
+        <button onclick="runBubbleSort()">執行進階氣泡排序</button>
+        <div id="bubble-result" class="result"></div>
+    </div>
+
+    <h2>2. 選擇排序法 (Selection Sort)</h2>
+    <p><strong>Index 用法：</strong>每次從未排序的區間中，找出最小值的「Index」，然後將該 Index 的數字與未排序區間的第一個數字交換。</p>
+
+    <pre><code>// C 語言實作：選擇排序
+void selectionSort(int arr[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        int minIndex = i; // 假設當前 i 是最小值的 index
+        
+        // 找出剩下的數字中最小的 index
+        for (int j = i + 1; j < n; j++) {
+            if (arr[j] < arr[minIndex]) {
+                minIndex = j; 
+            }
+        }
+        // 如果最小值的 index 不是原來的 i，就進行交換
+        if (minIndex != i) {
+            int temp = arr[minIndex];
+            arr[minIndex] = arr[i];
+            arr[i] = temp;
+        }
+    }
+}</code></pre>
+
+    <div class="demo-box">
+        <h3>網頁動態測試</h3>
+        <p>原始陣列：[29, 10, 14, 37, 14, 2, 8]</p>
+        <button onclick="runSelectionSort()">執行選擇排序</button>
+        <div id="selection-result" class="result"></div>
+    </div>
+
+    <script>
+        // JavaScript 實作來讓網頁有互動效果
+        function runBubbleSort() {
+            let arr = [64, 34, 25, 12, 22, 11, 90];
+            let n_temp = arr.length;
+            while (n_temp > 1) {
+                let newn = 0;
+                for (let i = 1; i < n_temp; i++) {
+                    if (arr[i - 1] > arr[i]) {
+                        let temp = arr[i - 1];
+                        arr[i - 1] = arr[i];
+                        arr[i] = temp;
+                        newn = i;
+                    }
+                }
+                n_temp = newn;
+            }
+            document.getElementById('bubble-result').innerText = "排序結果: [" + arr.join(", ") + "]";
+        }
+
+        function runSelectionSort() {
+            let arr = [29, 10, 14, 37, 14, 2, 8];
+            let n = arr.length;
+            for (let i = 0; i < n - 1; i++) {
+                let minIndex = i;
+                for (let j = i + 1; j < n; j++) {
+                    if (arr[j] < arr[minIndex]) {
+                        minIndex = j;
+                    }
+                }
+                if (minIndex !== i) {
+                    let temp = arr[minIndex];
+                    arr[minIndex] = arr[i];
+                    arr[i] = temp;
+                }
+            }
+            document.getElementById('selection-result').innerText = "排序結果: [" + arr.join(", ") + "]";
+        }
+    </script>
+</body>
+</html>
