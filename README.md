@@ -4,7 +4,7 @@
 姓名：XXX  
 
 ## 🔗 GitHub Pages
-https://你的帳號.github.io/sort_report/
+https://wpy931225-debug.github.io/sort_report/
 
 ## 📌 報告內容
 - 五種排序法介紹
