@@ -1,19 +1,65 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-    <meta charset="UTF-8">
-    <title>排序演算法分析報告</title>
+<meta charset="UTF-8">
+<title>排序演算法分析報告</title>
 </head>
+
 <body>
-    <h1>排序演算法分析報告</h1>
-    <ul>
-        <li><a href="bubble-sort.html">氣泡排序法 (Bubble Sort)</a></li>
-        <li><a href="selection-sort.html">選擇排序法 (Selection Sort)</a></li>
-        <li><a href="insertion-sort.html">插入排序法 (Insertion Sort)</a></li>
-        <li><a href="merge-sort.html">合併排序法 (Merge Sort)</a></li>
-        <li><a href="quick-sort.html">快速排序法 (Quick Sort)</a></li>
-        <li><a href="comparison.html">綜合比較</a></li>
-        <li><a href="conclusion.html">學習心得</a></li>
-    </ul>
+
+<h1>排序演算法分析報告</h1>
+
+<h2>一、前言</h2>
+<p>
+排序是電腦科學中最基本且重要的問題之一。本報告將探討五種常見排序演算法，
+並透過理論分析與實驗比較其效能差異。
+</p>
+
+<h2>二、排序法介紹</h2>
+<ul>
+  <li><a href="bubble-sort.html">氣泡排序 (Bubble Sort)</a></li>
+  <li><a href="selection-sort.html">選擇排序 (Selection Sort)</a></li>
+  <li><a href="insertion-sort.html">插入排序 (Insertion Sort)</a></li>
+  <li><a href="merge-sort.html">合併排序 (Merge Sort)</a></li>
+  <li><a href="quick-sort.html">快速排序 (Quick Sort)</a></li>
+</ul>
+
+<h2>三、複雜度分析</h2>
+<table border="1">
+<tr>
+<th>演算法</th><th>最佳</th><th>平均</th><th>最差</th><th>空間</th>
+</tr>
+<tr><td>Bubble</td><td>O(n)</td><td>O(n²)</td><td>O(n²)</td><td>O(1)</td></tr>
+<tr><td>Selection</td><td>O(n²)</td><td>O(n²)</td><td>O(n²)</td><td>O(1)</td></tr>
+<tr><td>Insertion</td><td>O(n)</td><td>O(n²)</td><td>O(n²)</td><td>O(1)</td></tr>
+<tr><td>Merge</td><td>O(n log n)</td><td>O(n log n)</td><td>O(n log n)</td><td>O(n)</td></tr>
+<tr><td>Quick</td><td>O(n log n)</td><td>O(n log n)</td><td>O(n²)</td><td>O(log n)</td></tr>
+</table>
+
+<h2>四、實驗設計</h2>
+<p>
+使用 Python 實作五種排序法，測試不同資料規模：
+</p>
+<ul>
+<li>n = 100</li>
+<li>n = 1000</li>
+<li>n = 10000</li>
+</ul>
+
+<h2>五、結果呈現</h2>
+<img src="images/chart.png" width="600">
+
+<h2>六、結果分析</h2>
+<p>
+實驗結果顯示，O(n²) 的排序法在資料量增加時效率明顯下降，
+而 Merge Sort 與 Quick Sort 表現較佳。
+</p>
+
+<h2>七、心得與結論</h2>
+<p>
+不同排序法適用於不同情境，小規模資料可使用簡單排序，
+大規模資料則建議使用分治法排序。
+</p>
+
 </body>
 </html>
