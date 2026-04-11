@@ -1,22 +1,19 @@
-# sort_report
-# 排序報告
+# 排序演算法分析報告
 
-學號: 11228136
-姓名: [王培宇]
-模擬頁面: https://[wpy931225-debug].github.io/sort_report/
+學號：XXXX  
+姓名：XXX  
 
-報告內容應該包括以下各節，簡述原理、複雜度分析與模擬實作內容。
+## 🔗 GitHub Pages
+https://你的帳號.github.io/sort_report/
 
-## 氣泡排序法
+## 📌 報告內容
+- 五種排序法介紹
+- 複雜度分析
+- Python 實驗比較
+- 圖表分析
+- 心得結論
 
-## 選擇排序法
-
-## 插入排序法
-
-## 合併排序法
-
-## 快速排序法
-
-## 綜合比較
-
-## 學習心得
+## 📊 使用技術
+- HTML
+- Python
+- Matplotlib
